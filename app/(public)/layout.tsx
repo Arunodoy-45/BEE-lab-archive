@@ -26,17 +26,6 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
 
       <main>{children}</main>
 
-      <footer className="foot">
-        <div className="foot-inner">
-          <span>© 2024 BEE Lab Archive · BGCTUB CSE Department</span>
-          <div className="foot-links">
-            <Link href="/">Home</Link>
-            <Link href="/boys">Boys</Link>
-            <Link href="/girls">Girls</Link>
-          </div>
-        </div>
-      </footer>
-
       <style>{`
         .nav-inner{max-width:1100px;margin:0 auto;padding:0 32px;height:58px;display:flex;align-items:center;justify-content:space-between}
         .logo-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
@@ -52,11 +41,6 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
         .nav-link:hover{color:var(--text);background:rgba(255,255,255,.05)}
         .nav-admin{font-size:11px;font-family:var(--font-mono),monospace;color:var(--dim);padding:7px 13px;border:1px solid var(--line2);border-radius:999px;text-decoration:none;transition:.15s}
         .nav-admin:hover{color:var(--muted);border-color:var(--muted)}
-        .foot{border-top:1px solid var(--line);padding:28px 32px;background:var(--bg2);position:relative;z-index:1}
-        .foot-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--dim)}
-        .foot-links{display:flex;gap:16px}
-        .foot-links a{color:var(--dim);text-decoration:none;transition:.15s}
-        .foot-links a:hover{color:var(--muted)}
       `}</style>
     </div>
   )
