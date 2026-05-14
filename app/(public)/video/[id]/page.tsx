@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { getOrCreateSessionId } from '@/lib/api/analytics'
+import { getOrCreateSessionId } from '@/lib/session'
 
 export default function VideoPage({ params }: { params: { id: string } }) {
   const [video, setVideo] = useState<any>(null)
