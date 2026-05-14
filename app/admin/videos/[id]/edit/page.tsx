@@ -28,16 +28,16 @@ export default function EditVideo({ params }: { params: { id: string } }) {
     } catch { setError('Something went wrong.'); setSaving(false) }
   }
 
-  const labelStyle = { display:'block' as const, fontSize:11, fontFamily:'JetBrains Mono,monospace', color:'var(--muted)', letterSpacing:'.08em', textTransform:'uppercase' as const, marginBottom:8 }
-  const inputStyle = { width:'100%', background:'rgba(255,255,255,.04)', border:'1px solid var(--line2)', borderRadius:10, padding:'12px 16px', fontSize:14, color:'var(--text)', fontFamily:'Onest,sans-serif', outline:'none', boxSizing:'border-box' as const }
+  const labelStyle = { display:'block' as const, fontSize:11, fontFamily:'var(--font-mono),monospace', color:'var(--muted)', letterSpacing:'.08em', textTransform:'uppercase' as const, marginBottom:8 }
+  const inputStyle = { width:'100%', background:'rgba(255,255,255,.04)', border:'1px solid var(--line2)', borderRadius:10, padding:'12px 16px', fontSize:14, color:'var(--text)', fontFamily:'var(--font-jakarta),sans-serif', outline:'none', boxSizing:'border-box' as const }
 
-  if (!video) return <div style={{ textAlign:'center', padding:'80px', color:'var(--muted)', fontFamily:'JetBrains Mono,monospace', fontSize:12 }}>Loading…</div>
+  if (!video) return <div style={{ textAlign:'center', padding:'80px', color:'var(--muted)', fontFamily:'var(--font-mono),monospace', fontSize:12 }}>Loading…</div>
 
   return (
     <div style={{ maxWidth:680, margin:'0 auto', padding:'48px 32px 100px' }}>
       <Link href="/admin/videos" style={{ fontSize:13, color:'var(--muted)', textDecoration:'none', display:'inline-block', marginBottom:28 }}>← Back to Videos</Link>
-      <div style={{ fontFamily:'JetBrains Mono,monospace', fontSize:11, color:'var(--mint)', letterSpacing:'.12em', textTransform:'uppercase', marginBottom:12 }}>/ Edit Video</div>
-      <h1 style={{ fontFamily:'Syne,sans-serif', fontWeight:800, fontSize:32, letterSpacing:'-.03em', margin:'0 0 32px', overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{video.title}</h1>
+      <div style={{ fontFamily:'var(--font-mono),monospace', fontSize:11, color:'var(--mint)', letterSpacing:'.12em', textTransform:'uppercase', marginBottom:12 }}>/ Edit Video</div>
+      <h1 style={{ fontFamily:'var(--font-jakarta),sans-serif', fontWeight:800, fontSize:32, letterSpacing:'-.03em', margin:'0 0 32px', overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{video.title}</h1>
       <form onSubmit={handleSubmit} style={{ display:'flex', flexDirection:'column', gap:22 }}>
         <div><label style={labelStyle}>Title *</label><input required value={form.title} onChange={e=>setForm(f=>({...f,title:e.target.value}))} style={inputStyle} /></div>
         <div><label style={labelStyle}>Description</label><textarea value={form.description} onChange={e=>setForm(f=>({...f,description:e.target.value}))} rows={3} style={{ ...inputStyle, resize:'vertical' as const }} /></div>
@@ -52,7 +52,7 @@ export default function EditVideo({ params }: { params: { id: string } }) {
         </div>
         {error && <div style={{ background:'rgba(242,107,107,.08)', border:'1px solid rgba(242,107,107,.2)', borderRadius:8, padding:'10px 14px', fontSize:13, color:'var(--rose)' }}>{error}</div>}
         <div style={{ display:'flex', gap:12 }}>
-          <button type="submit" disabled={saving} style={{ background:'var(--mint)', color:'#06160E', border:'none', borderRadius:999, padding:'13px 26px', fontSize:14, fontWeight:600, fontFamily:'Onest,sans-serif', cursor: saving ? 'not-allowed':'pointer', opacity: saving ? .5:1, transition:'.18s' }}>
+          <button type="submit" disabled={saving} style={{ background:'var(--mint)', color:'#06160E', border:'none', borderRadius:999, padding:'13px 26px', fontSize:14, fontWeight:600, fontFamily:'var(--font-jakarta),sans-serif', cursor: saving ? 'not-allowed':'pointer', opacity: saving ? .5:1, transition:'.18s' }}>
             {saving ? 'Saving…' : 'Save Changes'}
           </button>
           <Link href="/admin/videos" style={{ display:'inline-flex', alignItems:'center', padding:'13px 26px', borderRadius:999, border:'1px solid var(--line2)', fontSize:14, color:'var(--muted)', textDecoration:'none' }}>Cancel</Link>

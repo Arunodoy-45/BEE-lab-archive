@@ -1,24 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --bg:      #070807;
-  --bg2:     #0E1110;
-  --panel:   rgba(19,23,21,.5);
-  --line:    #1F2421;
-  --line2:   #2A312D;
-  --text:    #F3F6F4;
-  --muted:   #8A938E;
-  --dim:     #5D6661;
-  --mint:    #3DF49A;
-  --mint2:   #27D685;
-  --mint-s:  rgba(61,244,154,.12);
-  --rose:    #F26B6B;
-  --accent:  #3DF49A;
-  --border:  #1F2421;
-  --surface: rgba(255,255,255,.03);
+  --bg:       #070807;
+  --bg2:      #0E1110;
+  --panel:    rgba(19,23,21,.5);
+  --line:     #1F2421;
+  --line2:    #2A312D;
+  --text:     #F3F6F4;
+  --muted:    #8A938E;
+  --dim:      #5D6661;
+  --mint:     #3DF49A;
+  --mint2:    #27D685;
+  --mint-s:   rgba(61,244,154,.12);
+  --rose:     #F26B6B;
+  --accent:   #3DF49A;
+  --border:   #1F2421;
+  --surface:  rgba(255,255,255,.03);
+  --font-jakarta: 'Plus Jakarta Sans';
+  --font-mono: 'JetBrains Mono';
 }
 
 * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
@@ -27,11 +29,15 @@ html, body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: 'Onest', sans-serif;
+  font-family: var(--font-jakarta), Helvetica, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
 }
 
 ::selection { background: var(--mint); color: #000; }
 
+/* faint global grid */
 body::before {
   content: "";
   position: fixed; inset: 0;
@@ -42,6 +48,7 @@ body::before {
   background-size: 48px 48px;
 }
 
+/* green ambient glow */
 body::after {
   content: "";
   position: fixed; inset: 0;

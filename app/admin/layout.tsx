@@ -28,7 +28,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   ]
 
   return (
-    <div style={{ minHeight:'100vh', background:'var(--bg)', color:'var(--text)', fontFamily:'Onest,sans-serif', position:'relative', zIndex:1 }}>
+    <div style={{ minHeight:'100vh', background:'var(--bg)', color:'var(--text)', fontFamily:'var(--font-jakarta),sans-serif', position:'relative', zIndex:1 }}>
       <nav style={{ background:'rgba(7,8,7,.9)', backdropFilter:'blur(14px)', borderBottom:'1px solid var(--line)', padding:'0 32px', height:56, display:'flex', alignItems:'center', justifyContent:'space-between', position:'sticky', top:0, zIndex:80 }}>
         <Link href="/admin/dashboard" style={{ display:'flex', alignItems:'center', gap:10, textDecoration:'none', color:'inherit' }}>
           <div style={{ fontFamily:'JetBrains Mono,monospace', fontSize:11, color:'var(--mint)', letterSpacing:'.1em' }}>BEE LAB</div>
@@ -42,7 +42,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </Link>
           ))}
           <button onClick={async () => { await fetch('/api/admin/logout', { method:'POST' }); router.push('/admin/login') }}
-            style={{ marginLeft:8, fontSize:12, color:'var(--rose)', background:'none', border:'1px solid rgba(242,107,107,.2)', borderRadius:999, padding:'6px 14px', cursor:'pointer', fontFamily:'Onest,sans-serif', transition:'.15s' }}>
+            style={{ marginLeft:8, fontSize:12, color:'var(--rose)', background:'none', border:'1px solid rgba(242,107,107,.2)', borderRadius:999, padding:'6px 14px', cursor:'pointer', fontFamily:'var(--font-jakarta),sans-serif', transition:'.15s' }}>
             Logout
           </button>
         </div>
