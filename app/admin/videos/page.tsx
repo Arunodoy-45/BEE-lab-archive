@@ -39,7 +39,7 @@ export default function AdminVideos() {
             </div>
           : <div style={{ background:'var(--bg2)', border:'1px solid var(--line)', borderRadius:16, overflow:'hidden' }}>
               <div style={{ display:'grid', gridTemplateColumns:'1fr auto auto auto auto', gap:16, padding:'12px 24px', borderBottom:'1px solid var(--line)', ...labelStyle }}>
-                <span>Title</span><span>Section</span><span>Category</span><span>Views</span><span>Actions</span>
+                <span>Title</span><span>Section</span><span>Views</span><span>Actions</span>
               </div>
               {videos.map((v, i) => (
                 <div key={v.id} style={{ display:'grid', gridTemplateColumns:'1fr auto auto auto auto', gap:16, alignItems:'center', padding:'18px 24px', borderBottom: i<videos.length-1 ? '1px solid var(--line)' : 'none', transition:'.15s' }}>
@@ -50,7 +50,7 @@ export default function AdminVideos() {
                   <span style={{ fontFamily:'var(--font-mono),monospace', fontSize:10, padding:'3px 9px', borderRadius:6, background: v.section==='boys' ? 'rgba(59,130,246,.1)' : 'rgba(236,72,153,.1)', color: v.section==='boys' ? '#60a5fa' : '#f472b6', border: `1px solid ${v.section==='boys' ? 'rgba(59,130,246,.2)' : 'rgba(236,72,153,.2)'}` }}>
                     {v.section}
                   </span>
-                  <span style={{ fontFamily:'var(--font-mono),monospace', fontSize:11, color:'var(--muted)' }}>{v.category}</span>
+                  <span style={{ fontFamily:'var(--font-mono),monospace', fontSize:11, color:'var(--muted)' }}>
                   <span style={{ fontFamily:'var(--font-jakarta),sans-serif', fontWeight:700, fontSize:16, color:'var(--mint)' }}>{v.viewCount}</span>
                   <div style={{ display:'flex', gap:10 }}>
                     <Link href={`/admin/videos/${v.id}/edit`} style={{ fontSize:12, color:'var(--mint)', textDecoration:'none' }}>Edit</Link>

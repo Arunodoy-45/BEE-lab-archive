@@ -3,19 +3,17 @@ import { useState, useEffect, FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-const CATS = ["Ohm's Law",'Series & Parallel Circuits','Capacitors','Inductors & Transformers','AC Circuits','Diodes','Transistors','Op-Amps','Other']
-
 export default function EditVideo({ params }: { params: { id: string } }) {
   const router = useRouter()
   const [video, setVideo] = useState<any>(null)
-  const [form, setForm] = useState({ title:'', description:'', category:'' })
+  const [form, setForm] = useState({ title:'', description:'' })
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
 
   useEffect(() => {
     fetch(`/api/videos/${params.id}`).then(r=>r.json()).then(d => {
       setVideo(d.video)
-      setForm({ title: d.video.title, description: d.video.description||'', category: d.video.category })
+      setForm({ title: d.video.title, description: d.video.description||'' })
     })
   }, [params.id])
 
@@ -37,22 +35,17 @@ export default function EditVideo({ params }: { params: { id: string } }) {
     <div style={{ maxWidth:680, margin:'0 auto', padding:'48px 32px 100px' }}>
       <Link href="/admin/videos" style={{ fontSize:13, color:'var(--muted)', textDecoration:'none', display:'inline-block', marginBottom:28 }}>← Back to Videos</Link>
       <div style={{ fontFamily:'var(--font-mono),monospace', fontSize:11, color:'var(--mint)', letterSpacing:'.12em', textTransform:'uppercase', marginBottom:12 }}>/ Edit Video</div>
-      <h1 style={{ fontFamily:'var(--font-jakarta),sans-serif', fontWeight:800, fontSize:32, letterSpacing:'-.03em', margin:'0 0 32px', overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{video.title}</h1>
+      <h1 style={{ fontFamily:'var(--font-jakarta),sans-serif', fontWeight:800, fontSize:28, letterSpacing:'-.03em', margin:'0 0 32px', overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{video.title}</h1>
       <form onSubmit={handleSubmit} style={{ display:'flex', flexDirection:'column', gap:22 }}>
         <div><label style={labelStyle}>Title *</label><input required value={form.title} onChange={e=>setForm(f=>({...f,title:e.target.value}))} style={inputStyle} /></div>
         <div><label style={labelStyle}>Description</label><textarea value={form.description} onChange={e=>setForm(f=>({...f,description:e.target.value}))} rows={3} style={{ ...inputStyle, resize:'vertical' as const }} /></div>
-        <div><label style={labelStyle}>Category *</label>
-          <select required value={form.category} onChange={e=>setForm(f=>({...f,category:e.target.value}))} style={{ ...inputStyle, cursor:'pointer' }}>
-            {CATS.map(c => <option key={c} value={c}>{c}</option>)}
-          </select>
-        </div>
         <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:16 }}>
           <div><label style={labelStyle}>Section</label><input disabled value={video.section} style={{ ...inputStyle, opacity:.5, cursor:'not-allowed' }} /></div>
           <div><label style={labelStyle}>Views</label><input disabled value={video.viewCount} style={{ ...inputStyle, opacity:.5, cursor:'not-allowed' }} /></div>
         </div>
         {error && <div style={{ background:'rgba(242,107,107,.08)', border:'1px solid rgba(242,107,107,.2)', borderRadius:8, padding:'10px 14px', fontSize:13, color:'var(--rose)' }}>{error}</div>}
         <div style={{ display:'flex', gap:12 }}>
-          <button type="submit" disabled={saving} style={{ background:'var(--mint)', color:'#06160E', border:'none', borderRadius:999, padding:'13px 26px', fontSize:14, fontWeight:600, fontFamily:'var(--font-jakarta),sans-serif', cursor: saving ? 'not-allowed':'pointer', opacity: saving ? .5:1, transition:'.18s' }}>
+          <button type="submit" disabled={saving} style={{ background:'var(--mint)', color:'#06160E', border:'none', borderRadius:999, padding:'13px 26px', fontSize:14, fontWeight:700, fontFamily:'var(--font-jakarta),sans-serif', cursor: saving ? 'not-allowed':'pointer', opacity: saving ? .5:1, transition:'.18s' }}>
             {saving ? 'Saving…' : 'Save Changes'}
           </button>
           <Link href="/admin/videos" style={{ display:'inline-flex', alignItems:'center', padding:'13px 26px', borderRadius:999, border:'1px solid var(--line2)', fontSize:14, color:'var(--muted)', textDecoration:'none' }}>Cancel</Link>
