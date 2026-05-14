@@ -14,11 +14,11 @@ export default function LandingPage() {
           Session recordings for Basic Electrical Engineering lab —<br />browse by section, watch at your own pace.
         </p>
         <div className="hero-cta">
-          <Link href="/boys" className="btn-p">
+          <a href="#sections" className="btn-p">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
             Browse Sessions
-          </Link>
-          <Link href="/girls" className="btn-o">View Archive</Link>
+          </a>
+          <a href="#sections" className="btn-o">View Archive</a>
         </div>
         <div className="hero-stats">
           <div className="stat"><div className="stat-n">8</div><div className="stat-l">Total Sessions</div></div>
@@ -43,7 +43,7 @@ export default function LandingPage() {
       </div>
 
       {/* SECTION LIST */}
-      <div className="sections-wrap">
+      <div id="sections" className="sections-wrap">
         <div className="sec-head">
           <div>
             <div className="sec-tag-sm">/ Browse</div>
@@ -98,7 +98,7 @@ export default function LandingPage() {
         .strip-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
         .strip-inner b{color:var(--text);font-weight:600}
         .sep{color:var(--dim)}
-        .sections-wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:80px 32px 110px}
+        .sections-wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:80px 32px 110px;scroll-margin-top:70px}
         .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap;margin-bottom:40px}
         .sec-tag-sm{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--mint);margin-bottom:14px;font-family:var(--font-mono),monospace}
         .sec-head h2{font-size:clamp(36px,5vw,58px);font-weight:800;letter-spacing:-.04em;line-height:.95;margin:0;color:var(--text)}
